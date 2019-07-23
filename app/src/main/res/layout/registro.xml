@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00911717"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="72dp"
+        android:text="REGISTRAR"
+        android:textColor="#EBE5E5"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etuser"
+        android:layout_width="220dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="276dp"
+        android:background="@drawable/input"
+        android:hint="Usuario"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#ccc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etcontra"
+        android:layout_width="220dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="340dp"
+        android:background="@drawable/input"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#ccc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="113dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/etcontra"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="516dp"
+        android:background="@drawable/btn_redondeado_white"
+        android:onClick="registrar"
+        android:text="REGISTRAR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="126dp"
+        android:layout_height="48dp"
+        android:layout_alignTop="@+id/button4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="516dp"
+        android:layout_toRightOf="@+id/etcontra"
+        android:background="@drawable/btn_redondeado_white"
+        android:onClick="cancelar"
+        android:text="CANCELAR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etcod"
+        android:layout_width="220dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="216dp"
+        android:background="@drawable/input"
+        android:hint="ID"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#ccc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/ettel"
+        android:layout_width="220dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="404dp"
+        android:background="@drawable/input"
+        android:hint="Telefono"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#ccc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
