@@ -16,9 +16,12 @@ import java.util.ArrayList;
 public class sociosAdmin extends AppCompatActivity {
     private Cursor fila;
     ArrayAdapter<String> arrayAdapter;
+    ArrayList <String> lista, listaname;
     Button btnEliminar;
     ListView simpleList;
     int id;
+    int posEli;
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +31,18 @@ public class sociosAdmin extends AppCompatActivity {
         simpleList = findViewById(R.id.simpleList);
         btnEliminar = findViewById(R.id.btnDelete);
 
-        Intent i = getIntent();
-        Bundle bundle = getIntent().getExtras();
-        id = i.getIntExtra("id",id);
 
 
-        DBHelper admin=new DBHelper(this,"instituto",null,1);
+        final DBHelper admin=new DBHelper(this,"instituto",null,1);
 
-        ArrayList<String> lista = new ArrayList<>();
+        lista = new ArrayList<>();
+        listaname = new ArrayList<>();
+        lista = admin.getReportesSocios(0);
+        for (String i:lista) {
+            System.out.println(i);
+        }
 
-        lista = admin.getReportesSocios();
+
         arrayAdapter = new ArrayAdapter<String>(sociosAdmin.this,R.layout.listsocios, R.id.report,lista);
         simpleList.setAdapter(arrayAdapter);
         arrayAdapter.notifyDataSetChanged();
@@ -45,5 +50,19 @@ public class sociosAdmin extends AppCompatActivity {
 
 
 
+
     }
+
+    public void eliminar(View view) {
+        View item = (View) view.getParent();
+        int pos = simpleList.getPositionForView(item);
+        String [] datos = lista.get(pos).toString().split(" ");
+        posEli = Integer.parseInt(datos[1]);
+        lista.remove(pos);
+        System.out.println("pos: "+pos);
+        dbHelper.delete(posEli);
+        arrayAdapter.notifyDataSetChanged();
+    }
+
+
 }

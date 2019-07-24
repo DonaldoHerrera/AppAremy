@@ -161,7 +161,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return lista;
     }
-    public ArrayList getReportesSocios(){
+    public ArrayList getReportesSocios(int indice){
         ArrayList<String> lista = new ArrayList<>();
         String QUERY = "SELECT * FROM "+ TABLE;
         String totalData = "";
@@ -213,6 +213,35 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.update(TABLE,cValues,KEY_ID+" = "+id,null);
         db.close();
+    }
+
+    public boolean delete(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE, KEY_ID + "=" + id, null) > 0;
+    }
+    public ArrayList getReportesName(String name){
+        ArrayList<String> listaname = new ArrayList<>();
+        String QUERY = "SELECT * FROM "+ TABLE +" where usuario='"+name+"'";
+        String totalData = "";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(QUERY,null);
+
+        if (cursor.moveToFirst()){
+            do{
+                //String data1 = cursor.getString(cursor.getColumnIndex(KEY_NAME));
+                //String data2 = cursor.getString(cursor.getColumnIndex(KEY_PASS));
+                //tring data3 = cursor.getString(cursor.getColumnIndex(KEY_ID));
+                String data4 = cursor.getString(cursor.getColumnIndex(KEY_REPORTES));
+                String data5 = cursor.getString(cursor.getColumnIndex(KEY_FONDOS));
+                String data6 = cursor.getString(cursor.getColumnIndex(KEY_TELEPHONE));
+                totalData = "Reporte: "+data4+"\n"+"Gasto: "+data5+"\n"+"Telefono: "+data6;
+                System.out.println("data: "+data4);
+                listaname.add(totalData);
+                // do what ever you want here
+            }while(cursor.moveToNext());
+        }
+
+        return listaname;
     }
 
 }

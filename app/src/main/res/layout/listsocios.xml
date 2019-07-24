@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="284dp"
         android:layout_marginTop="52dp"
+        android:onClick="eliminar"
         android:text="Dar de baja"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
